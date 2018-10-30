@@ -1,4 +1,4 @@
-FROM python:3.6 as lint
+FROM python:3.6 AS lint
 
 COPY requirements.txt .
 
