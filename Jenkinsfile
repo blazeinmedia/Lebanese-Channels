@@ -6,8 +6,10 @@ pipeline {
     stages {
         stage('Validate') {
             agent {
-                additionalBuildArgs '--target lint'
-                filename 'Dockerfile'
+                dockerfile {
+                    additionalBuildArgs '--target lint'
+                    filename 'Dockerfile'
+                }
             }
             steps {
                 sh 'python -m unittest discover -v tests'
