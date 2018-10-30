@@ -2,15 +2,12 @@
 
 pipeline {
     agent none
-    triggers {
-        githubPush()
-    }
+
     stages {
         stage('Validate') {
             agent {
-                dockerfile {
-                    filename 'Dockerfile.build'
-                }
+                additionalBuildArgs '--target lint'
+                filename 'Dockerfile'
             }
             steps {
                 sh 'python -m unittest discover -v tests'
