@@ -12,7 +12,7 @@ RUN mkdir -p /opt/lc
 
 WORKDIR /opt/lc
 
-COPY requirements.txt .
+COPY requirements.txt /opt/lc
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /opt/lc
